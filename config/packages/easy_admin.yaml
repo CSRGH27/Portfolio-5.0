@@ -1,0 +1,42 @@
+easy_admin:
+    site_name: 'Dashboard'
+    design:
+        menu:
+            - {entity: 'Project', icon: 'laptop-code', label: 'Projects'}
+            - {entity: 'Skill', icon: 'code', label: 'Skills'}
+        
+        brand_color: 'red'
+        assets: 
+            favicon: '/images/fav.png'
+            css:
+            - 'bundles/easyadmin/bootstrap-all.css'
+            js:
+            - 'bundles/easyadmin/bootstrap-all.js'
+    entities:
+        Project:
+            class: App\Entity\Project
+            label: 'Project'
+            list:
+                max_results: 20
+                fields: 
+                    - { property : 'title'}
+                    - { property : 'content'}
+                    - { property: 'image', type: 'image', base_path: '/images/projects' }
+                    - { property: 'skill'}
+
+            form:
+                title: 'Add project'
+                fields: 
+                    - { property : 'title', label: 'Title :'}
+                    - { property : 'content', label: 'Content :'}
+                    - { property: 'imageFile', type: 'vich_image', label: 'Image :'}
+                    - { property: 'skill', label: 'Skills :' }
+            show:
+                fields:
+                    - { property: 'image', type: 'image', base_path: '/images/projects'}
+
+        Skill:
+            class: App\Entity\Skill
+        
+            
+       

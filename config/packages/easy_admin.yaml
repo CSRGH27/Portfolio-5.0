@@ -5,6 +5,7 @@ easy_admin:
             - {entity: 'Project', icon: 'laptop-code', label: 'Projects'}
             - {entity: 'Experience', icon: 'briefcase', label: 'Experience'}
             - {entity: 'Skill', icon: 'code', label: 'Skills'}
+            - {entity: 'User', icon: 'user', label: 'User'}
         
         brand_color: 'red'
         assets: 
@@ -87,7 +88,21 @@ easy_admin:
                     - { property: 'date_end', help: 'Format : December 2015'}
             
             edit:
-                title: 'Edit experience'   
+                title: 'Edit experience' 
+
+
+
+        User:
+            class: App\Entity\User
+            form:
+                fields:
+                    - username
+                    - email
+                    - enabled
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+
         
             
        

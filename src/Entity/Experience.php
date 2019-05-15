@@ -2,19 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ExperienceRepository")
  * @Vich\Uploadable
  */
-class Project
+class Experience
 {
     /**
      * @ORM\Id()
@@ -25,29 +22,33 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(
-     *                  min = 10,
-     *                  max = 30,
-     *                  minMessage = "Le titre du projet doit faire au minimum {{ limit }} caracteres",       
-     *                  )
      */
     private $title;
 
     /**
-     * @ORM\Column(type="text")
-     * @Assert\Length(
-     * min = 100,
-     * max = 350,
-     * minMessage = "La description du projet doit faire au minimum {{ limit }} caracteres",
-     * maxMessage = "La description du projet doit faire au maximum {{ limit }} caracteres"       
-     *              )
+     * @ORM\Column(type="string", length=255)
      */
-    private $content;
+    private $place;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="projects")
+     * @ORM\Column(type="string", length=255)
      */
-    private $skill;
+    private $city;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $date_begin;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $date_end;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -58,7 +59,7 @@ class Project
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="project_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="experience_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
@@ -68,11 +69,6 @@ class Project
      * @var \DateTime
      */
     private $updatedAt;
-
-    public function __construct()
-    {
-        $this->skill = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -91,40 +87,62 @@ class Project
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getPlace(): ?string
     {
-        return $this->content;
+        return $this->place;
     }
 
-    public function setContent(string $content): self
+    public function setPlace(string $place): self
     {
-        $this->content = $content;
+        $this->place = $place;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Skill[]
-     */
-    public function getSkill(): Collection
+    public function getCity(): ?string
     {
-        return $this->skill;
+        return $this->city;
     }
 
-    public function addSkill(Skill $skill): self
+    public function setCity(string $city): self
     {
-        if (!$this->skill->contains($skill)) {
-            $this->skill[] = $skill;
-        }
+        $this->city = $city;
 
         return $this;
     }
 
-    public function removeSkill(Skill $skill): self
+    public function getDescription(): ?string
     {
-        if ($this->skill->contains($skill)) {
-            $this->skill->removeElement($skill);
-        }
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDateBegin(): ?string
+    {
+        return $this->date_begin;
+    }
+
+    public function setDateBegin(string $date_begin): self
+    {
+        $this->date_begin = $date_begin;
+
+        return $this;
+    }
+
+    public function getDateEnd(): ?string
+    {
+        return $this->date_end;
+    }
+
+    public function setDateEnd(string $date_end): self
+    {
+        $this->date_end = $date_end;
 
         return $this;
     }

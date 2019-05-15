@@ -3,6 +3,7 @@ easy_admin:
     design:
         menu:
             - {entity: 'Project', icon: 'laptop-code', label: 'Projects'}
+            - {entity: 'Experience', icon: 'briefcase', label: 'Experience'}
             - {entity: 'Skill', icon: 'code', label: 'Skills'}
         
         brand_color: 'red'
@@ -15,7 +16,7 @@ easy_admin:
     entities:
         Project:
             class: App\Entity\Project
-            label: 'Project'
+            label: 'Projects'
             list:
                 max_results: 20
                 fields: 
@@ -31,12 +32,62 @@ easy_admin:
                     - { property : 'content', label: 'Content :'}
                     - { property: 'imageFile', type: 'vich_image', label: 'Image :'}
                     - { property: 'skill', label: 'Skills :' }
-            show:
-                fields:
-                    - { property: 'image', type: 'image', base_path: '/images/projects'}
+            
+            edit:
+                title: 'Edit project' 
+    
 
+        
+        
         Skill:
             class: App\Entity\Skill
+            label: 'Skills'
+            list:
+                max_results: 20
+                fields:
+                    - { property : 'name'}
+                    - { property : 'level'}
+                    - { property: 'image', type: 'image', base_path: '/images/skills' }
+                    - { property: 'projects'}
+            
+            form:
+                title: 'Add skill'
+                fields: 
+                    - { property : 'name', label: 'Skill :'}
+                    - { property : 'level', label: 'Level :'}
+                    - { property: 'imageFile', type: 'vich_image', label: 'Image :'}
+            
+            edit:
+                title: 'Edit skill'
+
+
+
+        Experience:
+            class: App\Entity\Experience
+            label: 'Experience'
+            list:
+                max_results: 20
+                fields:
+                    - { property : 'title'}
+                    - { property : 'place', label: 'Company or School'}
+                    - { property : 'city'}
+                    - { property: 'image', type: 'image', base_path: '/images/experiences' }
+                    - { property: 'date_begin'}
+                    - { property: 'date_end'}
+            
+            form:
+                title: 'Add experience'
+                fields: 
+                    - { property : 'title', label: 'Title :'}
+                    - { property : 'description', label: 'Description :'}
+                    - { property : 'place', label: 'Company or school :'}
+                    - { property : 'city', label: 'City :'}
+                    - { property: 'imageFile', type: 'vich_image', label: 'Image :'}
+                    - { property: 'date_begin', help: 'Format : June 2018'}
+                    - { property: 'date_end', help: 'Format : December 2015'}
+            
+            edit:
+                title: 'Edit experience'   
         
             
        

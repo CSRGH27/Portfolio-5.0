@@ -51,10 +51,9 @@ class Experience
     private $date_end;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
-     * @Assert\NotBlank(
-     *                   message = "You have to upload an image !!")
+     * 
      */
     private $image;
 
@@ -65,7 +64,7 @@ class Experience
     private $imageFile;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var \DateTime
      */
     private $updatedAt;

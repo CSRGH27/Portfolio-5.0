@@ -7,7 +7,7 @@ easy_admin:
             - {entity: 'Skill', icon: 'code', label: 'Skills'}
             - {entity: 'User', icon: 'user', label: 'User'}
         
-        brand_color: 'red'
+        brand_color: '#8DC26F'
         assets: 
             favicon: '/images/fav.png'
             css:

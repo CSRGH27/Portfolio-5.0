@@ -5,3 +5,11 @@
         $('.nav-menu').toggleClass('nav-menu-toggle')
         
     });
+
+    var el = document.querySelector('.balayage')
+    el.addEventListener("animationend", show, false)
+    
+    
+    function show() {
+        $('.main-ctn-bigTitle, .main-ctn-burger, .main-ctn-dropdown ').addClass('show');
+    };

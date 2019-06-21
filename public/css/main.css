@@ -53,7 +53,6 @@ html {
     animation-duration: 0s;
     animation-delay: 4.75s;
     animation-fill-mode: forwards;
-    display: none;
 }
 
 @keyframes decolorisation {
@@ -693,12 +692,6 @@ html {
     transition-delay: .7s;
 }
 
-.show {
-    opacity: 1;
-    transition: 0.7s;
-    transform: translateY(0);
-}
-
 @media (max-width: 1500px) {
     .menu-link {
         font-size: 30px;
@@ -827,6 +820,9 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 0.7s;
 }
 
 .about-ctn-title h2 {
@@ -853,6 +849,9 @@ html {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 0.7s;
 }
 
 .about-ctn-big-ctn-bio img {
@@ -879,9 +878,12 @@ html {
     flex-direction: column;
 }
 
-.ctn-skills h2 {
+.ctn-skills-h2 {
     font-size: 50px;
     font-weight: 200;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 0.7s;
 }
 
 .ctn-skills-ctn-triangle {
@@ -914,6 +916,9 @@ html {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 0.7s;
 }
 
 .ctn-assets {
@@ -1134,4 +1139,88 @@ html {
     .about-ctn-big-ctn-bio img {
         width: 360px;
     }
+}
+
+.career {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template: 100% / 1fr 1366px 1fr;
+}
+
+.career-ctn-title {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* opacity: 0;
+    transform: translateY(100px);
+    transition: 0.7s; */
+}
+
+.career-ctn-title h2 {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #f00f30;
+    font-size: 170px;
+    font-weight: 500;
+}
+
+.career-ctn-center {
+    grid-row: 1;
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.career-ctn-center-gallery-wrap {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    flex: 1;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    transition: 0.7s;
+}
+
+.item:hover {
+    flex: 7;
+}
+
+.item-1 {
+    background-image: url('https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1234&q=80');
+}
+
+.item-2 {
+    background: red
+}
+
+.item-3 {
+    background: #f00f30
+}
+
+.item-4 {
+    background: yellow;
+}
+
+.item-5 {
+    background: blueviolet;
+}
+
+.show {
+    opacity: 1;
+    transition: 0.7s;
+    transform: translateY(0);
 }

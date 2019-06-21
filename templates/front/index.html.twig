@@ -101,7 +101,7 @@
                         </ul>
                     </div>
                 </div>
-                <a class="main-ctn-dropdown">
+                <a class="main-ctn-dropdown" href="#about" >
                     <svg class="ctn-arrow-circle">
                         <circle class="circle" cx="50" cy="50" r="35"/>
                         <path class="arrow" d="M65,48.9L50.6,67L36,49.1l2.5-3.2l10.2,12.6L48.6,31l3.6,0l0.1,27.5l10.1-12.7L65,48.9z" id="path"/>
@@ -109,7 +109,7 @@
                 </a>
             </div>
         </div>
-        <div class="about">
+        <div class="about" id="about" >
             <div class="about-ctn-title">
                 <h2>ABOUT</h2>
             </div>
@@ -121,10 +121,10 @@
                     </p>
                 </div>
                 <div class="ctn-skills">
-                    <h2>SKILLS</h2>
+                    <h2 class="ctn-skills-h2" >SKILLS</h2>
                     <div class="ctn-skills-ctn-triangle">
                         {% for skill in skills %}
-                            <div class="ldBar auto T-{{ loop.index }}" data-img="{{ vich_uploader_asset(skill, 'imageFile') }}" data-type="fill" data-value="0"></div>
+                            <div class="ldBar auto T-{{ loop.index }}" data-img="{{ vich_uploader_asset(skill, 'imageFile') }}" data-type="fill" data-value="0" style="width:110px" "height:110px"; ></div>
                         {% endfor %}
                     </div>
                 </div>
@@ -190,8 +190,22 @@
                     </div>
                 </div>
             </div>
-
-
+        </div>
+        <div class="career">
+            <div class="career-ctn-title">
+                <h2>CAREER</h2>
+            </div>
+            <div class="career-ctn-center">
+                <div class="career-ctn-center-gallery-wrap">
+                <div class="item item-1">
+                
+                </div>
+                <div class="item item-2"></div>
+                <div class="item item-3"></div>
+                <div class="item item-4"></div>
+                <div class="item item-5"></div>
+                </div>
+            </div>
         </div>
         <script></script>
     {% endblock %}

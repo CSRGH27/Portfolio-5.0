@@ -78,8 +78,8 @@ body {
 
 .svg {
     position: absolute;
-    top: calc( 50% - 48px);
-    left: calc( 50% - 488px);
+    top: calc(50% - 48px);
+    left: calc(50% - 488px);
     stroke-dasharray: 530px;
     stroke-dashoffset: 530px;
     animation-name: laser;
@@ -163,14 +163,14 @@ body {
     transform: translateY(100px);
 }
 
-.main-ctn-bigTitle h2 {
+.main-ctn-bigTitle-ctn-intro {
     width: 725px;
 }
 
 .h2-thin {
     color: #000f30;
     font-size: 76px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .ctn-keyword {
@@ -1141,6 +1141,9 @@ body {
     .ctn-skills {
         height: 500px;
     }
+    .about-ctn-big-ctn-bio h2 {
+        font-size: 50px;
+    }
 }
 
 @media (max-width: 410px) {
@@ -1161,9 +1164,6 @@ body {
     display: grid;
     grid-template: 100% / 1fr 1366px 1fr;
     margin-top: 150px;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: 0.7s;
 }
 
 .career-ctn-title {
@@ -1209,12 +1209,23 @@ body {
     height: 100%;
     background-position: center;
     background-size: cover;
-    background-repeat: none;
-    transition: ease .5s;
+    transition: .5s;
     position: relative;
-    transition-delay: .2s;
     display: flex;
     align-items: center;
+    opacity: 0;
+    transform: translateY(150px);
+}
+
+.item-show {
+    animation: item-show .6s ease forwards;
+}
+
+@keyframes item-show {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .item-ctn-desc {
@@ -1234,8 +1245,8 @@ body {
 
 .item-ctn-title {
     position: absolute;
-    left: calc( 50% - 42px);
-    bottom: calc( 50% - 173px);
+    left: calc(50% - 42px);
+    bottom: calc(50% - 173px);
     transition: .5s;
     transition-delay: .6s;
 }
@@ -1337,8 +1348,8 @@ body {
     }
     .item-ctn-title {
         position: absolute;
-        left: calc( 50% - 175px);
-        bottom: calc( 50% - 30px);
+        left: calc(50% - 175px);
+        bottom: calc(50% - 30px);
         transition: .5s;
         transition-delay: .6s;
         width: 330px;
@@ -1359,7 +1370,7 @@ body {
         border: solid 2px #fff;
         border-radius: 50%;
         position: absolute;
-        left: calc( 50% - 25px);
+        left: calc(50% - 25px);
         bottom: 15px;
         color: #fff;
         display: flex;
@@ -1432,8 +1443,356 @@ body {
     }
 }
 
+.portfolio {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template: 100% / 1fr 1366px 1fr;
+    margin-top: 100px;
+    position: relative;
+}
+
+.portfolio-ctn-title {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-ctn-title h2 {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #f00f30;
+    font-size: 150px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.portfolio-ctn-center {
+    grid-row: 1;
+    grid-column: 2;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-ctn-center-gallery-wrap {
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    display: flex;
+}
+
+.portfolio-card {
+    width: 33.33%;
+    height: 350px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(150px);
+}
+
+.portfolio-card-show {
+    animation: card-show .6s ease forwards;
+}
+
+@keyframes card-show {
+    to {
+        opacity: 1;
+        transform: translateY(0px)
+    }
+}
+
+.portfolio-card-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.portfolio-card h3 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%) translateY(-90px);
+    color: #f00f30;
+    opacity: 0;
+    transition: .5s;
+    text-align: center;
+    width: 75%;
+}
+
+.portfolio-card-btn {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%) translateY(60px);
+    opacity: 0;
+    transition: .5s
+}
+
+.btn {
+    border: 2px solid #f00f30;
+    width: 170px;
+    margin: 0 auto;
+    font-size: 13px;
+    padding: 7px;
+    color: #000f30;
+    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    transition: .5s;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #f00f30;
+    cursor: pointer;
+}
+
+.portfolio-card:hover>.portfolio-card-img {
+    opacity: 0.2;
+}
+
+.portfolio-card:hover>h3 {
+    transform: translate(-50%) translateY(0px);
+    opacity: 1;
+}
+
+.portfolio-card:hover>.portfolio-card-btn {
+    transform: translate(-50%) translateY(0px);
+    opacity: 1;
+}
+
 .show {
     opacity: 1;
     transition: 0.7s;
     transform: translateY(0);
+}
+
+.load {
+    width: 350px;
+    animation: rotate 5s linear forwards infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    display: none;
+    position: absolute;
+}
+
+.load-triangle {
+    /* fill: none; */
+    stroke: #f00f30;
+    stroke-width: 7px;
+    width: 300px;
+    height: 300px;
+    /* stroke-dashoffset: 12; */
+    fill: rgba(206, 206, 206, .5);
+    stroke-dasharray: 194;
+    animation: dash .7s linear infinite;
+    position: absolute;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 387;
+    }
+}
+
+.modal-body {
+    padding: 0%;
+    border-bottom: 3px solid #f00f30;
+}
+
+.modal-img {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal-title {
+    padding: 15px;
+}
+
+.modal-title-btn {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000f30;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-modal {
+    margin: 0;
+    align-self: flex-start;
+}
+
+.modal-title h2 {
+    color: #f00f30;
+}
+
+.modal-skill {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modal-skill-img {
+    height: 100%;
+    width: auto;
+}
+
+@media (max-width: 1700px) {
+    .portfolio-ctn-center {
+        flex-direction: column;
+        grid-column: 1;
+        width: 90%;
+        margin: auto;
+    }
+    .portfolio-ctn-title {
+        display: none;
+    }
+    .portfolio-responsive-title {
+        color: transparent;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: #f00f30;
+        font-size: 100px;
+        font-weight: 500;
+        align-self: flex-start;
+    }
+    .portfolio {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template: 100% / 100%;
+    }
+}
+
+@media (min-width: 1700px) {
+    .portfolio-responsive-title {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    .portfolio-card h2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1180px) {
+    .portfolio {
+        height: auto;
+    }
+    .portfolio-card {
+        width: 50%;
+    }
+}
+
+@media (max-width: 991px) {
+    .modal .modal-dialog {
+        width: 85%;
+        max-width: 85%;
+        margin: auto;
+        padding-top: 50px;
+    }
+    .modal-skill {
+        height: auto;
+    }
+    .modal-title {
+        height: auto;
+    }
+    .modal-skill-img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 800px) {
+    .portfolio-card {
+        width: 100%;
+    }
+    .modal-img {
+        height: 335px;
+    }
+    .modal-skill-img {
+        height: 75px;
+    }
+}
+
+@media (max-width: 626px) {
+    .portfolio-responsive-title {
+        align-self: center;
+    }
+    .portfolio-ctn-center {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-img {
+        height: 250px;
+    }
+    .modal-skill-img {
+        height: 55px;
+    }
+}
+
+@media (max-width: 544px) {
+    .portfolio-responsive-title,
+    .career-responsive-title {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 500px) {
+    .modal-title-btn h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-responsive-title,
+    .career-responsive-title {
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 450px) {
+    .btn-modal {
+        width: 110px;
+    }
+}
+
+@media (max-width: 390px) {
+    .modal-footer {
+        padding: 0%;
+    }
+}
+
+@media (max-width: 375px) {
+    .portfolio-responsive-title,
+    .career-responsive-title {
+        font-size: 65px;
+    }
+}
+
+.contact {
+    margin-top: 100px;
+    height: 600px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

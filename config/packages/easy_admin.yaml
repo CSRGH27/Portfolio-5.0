@@ -33,6 +33,7 @@ easy_admin:
                     - { property : 'content', label: 'Content :'}
                     - { property: 'imageFile', type: 'vich_image', label: 'Image :'}
                     - { property: 'skill', label: 'Skills :' }
+                    - { property: 'link', label: 'Link :' }
             
             edit:
                 title: 'Edit project' 

@@ -26,8 +26,8 @@ class Project
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
-     *                  min = 10,
-     *                  max = 30,
+     *                  min = 5,
+     *                  max = 50,
      *                  minMessage = "Le titre du projet doit faire au minimum {{ limit }} caracteres",       
      *                  )
      */
@@ -67,6 +67,11 @@ class Project
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
 
     public function __construct()
     {
@@ -170,5 +175,17 @@ class Project
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
+
+        return $this;
     }
 }

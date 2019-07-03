@@ -1,0 +1,26 @@
+{% block body %}
+
+
+    <div class="modal-body">
+        <div class="modal-img" style="background-image: url('{{ vich_uploader_asset(project, 'imageFile') }}')"></div>
+    </div>
+    <div class="modal-footer">
+        <div class="modal-title">
+            <div class="modal-title-btn">
+            <h3>{{ project.title }}</h3>
+            <a target="_blank" href="{{project.link}}" class="btn btn-modal">VIEW SITE</a>
+            </div>
+            <p>{{ project.content }}</p>
+            <div class="modal-skill">
+                {% for skill in project.skill %}
+                    <img class="modal-skill-img" src="{{ vich_uploader_asset(skill, 'imageFile') }}" alt="">
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

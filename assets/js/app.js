@@ -14,6 +14,8 @@ require('stellar.js')
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 
+
+
 // Appear/Dissapear nav
 $('.main-ctn-burger').click(function() {
     $('.main-ctn-nav').toggleClass('main-ctn-nav-toggle')
@@ -31,7 +33,7 @@ function show() {
 };
 
 $(document).ready(function() {
-    $('.main-ctn-dropdown').on('click', function() {
+    $('.main-ctn-dropdown, .menu-link-1, .menu-link-2, .menu-link-3, .menu-link-4, .menu-link-5').on('click', function() {
         var section = $(this).attr('href');
         $('html, body').animate({
             scrollTop: $(section).offset().top
@@ -115,11 +117,22 @@ $(document).ready(function() {
     }, {
         offset: '90%'
     });
+
     $('.career').waypoint(function(direction) {
         if (direction == 'down') {
-            $('.career').addClass('show');
+            $('.item').addClass('item-show');
         } else {
-            $('.career').removeClass('show');
+            $('.item').removeClass('item-show');
+        }
+    }, {
+        offset: '50%'
+    });
+
+    $('.portfolio').waypoint(function(direction) {
+        if (direction == 'down') {
+            $('.portfolio-card').addClass('portfolio-card-show');
+        } else {
+            $('.portfolio-card').removeClass('portfolio-card-show');
         }
     }, {
         offset: '50%'
@@ -143,5 +156,35 @@ $(document).ready(function() {
         $(this).siblings('.item-ctn-desc').toggleClass('item-ctn-desc-show-responsive')
         $(this).children('.fa-chevron-down').toggleClass('chevron-rotate')
 
+    });
+});
+
+
+
+$(document).ready(function() {
+    var modal = $("#Modal"); //your modal 
+
+    $(document).on({
+        ajaxStart: function() {
+            modal.find(".modal-content").html(""); //empty modal every ajaxstart
+            $('.load').show();
+            modal.modal("hide"); //hide
+
+        },
+        ajaxStop: function() {
+            $('.load').hide();
+            modal.modal("show"); //modal show
+        }
+    });
+
+
+    $('.portfolio-card-btn').click(function() {
+        var url = Routing.generate('project_show', {
+            'id': $(this).attr('id')
+        });
+        $.get(url, function(data) {
+            console.log(data)
+            $(".modal-content").html(data);
+        });
     });
 });

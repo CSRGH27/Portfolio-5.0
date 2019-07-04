@@ -15,22 +15,28 @@ require('stellar.js')
 // const $ = require('jquery');
 
 
+//Appartion menu 
+$(document).ready(function() {
+    $('.main-ctn-burger').click(function() {
+        $('.main-ctn-nav').toggleClass('main-ctn-nav-toggle')
+        $('.main-ctn-burger').toggleClass('toggle-burger')
+        $('.nav-menu').toggleClass('nav-menu-toggle')
 
-// Appear/Dissapear nav
-$('.main-ctn-burger').click(function() {
-    $('.main-ctn-nav').toggleClass('main-ctn-nav-toggle')
-    $('.main-ctn-burger').toggleClass('toggle-burger')
-    $('.nav-menu').toggleClass('nav-menu-toggle')
+    });
 
+    var el = document.querySelector('.balayage')
+    el.addEventListener("animationend", show, false)
+
+
+    function show() {
+        $('.main-ctn-bigTitle, .main-ctn-burger, .main-ctn-dropdown ').addClass('show');
+    };
 });
 
-var el = document.querySelector('.balayage')
-el.addEventListener("animationend", show, false)
 
 
-function show() {
-    $('.main-ctn-bigTitle, .main-ctn-burger, .main-ctn-dropdown ').addClass('show');
-};
+// Appear/Dissapear nav
+
 
 $(document).ready(function() {
     $('.main-ctn-dropdown, .menu-link-1, .menu-link-2, .menu-link-3, .menu-link-4, .menu-link-5').on('click', function() {
@@ -43,7 +49,7 @@ $(document).ready(function() {
 });
 
 
-//Appear skills
+//Appear skills + Waypoints
 $(document).ready(function() {
     $('.ctn-skills-ctn-triangle').waypoint(function(direction) {
         var t1 = new ldBar('.T-1')
@@ -146,7 +152,7 @@ $(document).ready(function() {
 
 
 
-
+//Portfolio responsive
 $(document).ready(function() {
 
     $('.career-ctn-center-gallery-wrap').on('click', 'div.career-btn-reponsive', function() {
@@ -160,7 +166,7 @@ $(document).ready(function() {
 });
 
 
-
+//OUverture modal avec ajax plus loader
 $(document).ready(function() {
     var modal = $("#Modal"); //your modal 
 
@@ -186,5 +192,31 @@ $(document).ready(function() {
             console.log(data)
             $(".modal-content").html(data);
         });
+    });
+});
+
+
+//Form barre rouge
+$(document).ready(function() {
+    $('.form-name').keyup(function() {
+        if (this.value) {
+            $('.form-span-name').addClass('span-scale');
+        } else {
+            $('.form-span-name').removeClass('span-scale');
+        }
+    });
+    $('.form-mail').keyup(function() {
+        if (this.value) {
+            $('.form-span-mail').addClass('span-scale');
+        } else {
+            $('.form-span-mail').removeClass('span-scale');
+        }
+    });
+    $('.form-text').keyup(function() {
+        if (this.value) {
+            $('.form-span-text').addClass('span-scale');
+        } else {
+            $('.form-span-text').removeClass('span-scale');
+        }
     });
 });

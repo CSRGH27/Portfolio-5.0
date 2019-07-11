@@ -1444,6 +1444,7 @@ input:-webkit-autofill:active {
     display: grid;
     grid-template: 100% / 1fr 1366px 1fr;
     margin-top: 100px;
+    position: relative;
 }
 
 .portfolio-ctn-title {
@@ -1800,6 +1801,20 @@ input:-webkit-autofill:active {
     flex-direction: column;
     justify-content: center;
     padding: 35px;
+    transform: translateY(150px);
+    transition: .6s;
+    opacity: 0;
+}
+
+.contact-form-show {
+    animation: contact-form-show .6s ease forwards;
+}
+
+@keyframes contact-form-show {
+    to {
+        opacity: 1;
+        transform: translateY(0px)
+    }
 }
 
 .contact-form h3 {

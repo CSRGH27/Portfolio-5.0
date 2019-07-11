@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\SkillRepository;
-use App\Repository\ExperienceRepository;
 use App\Entity\Skill;
 use App\Entity\Experience;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,7 +60,7 @@ class FrontController extends AbstractController
     }
 
     /**
-     *  @Route("/{id}", name="project_show", options={"expose"=true})
+     *  @Route("/{id}", name="project_show", options={"expose"=true}, requirements={"id":"\d+"})
      */
     public function show(Project $project)
     {
@@ -71,17 +69,4 @@ class FrontController extends AbstractController
 
         ]);
     }
-
-    // /**
-    //  * @Route("/contact", name="contact")
-    //  */
-    // public function contact()
-    // {
-    //     $form = $this->createForm(ContactType::class);
-
-    //     return $this->render('front/contact.html.twig',[
-    //         'form' => $form->createView(),
-    //     ]);
-
-    // }
 }

@@ -144,6 +144,16 @@ $(document).ready(function() {
         offset: '50%'
     });
 
+    $('.contact-form').waypoint(function(direction) {
+        if (direction == 'down') {
+            $('.contact-form').addClass('contact-form-show');
+        } else {
+            $('.contact-form').removeClass('contact-form-show');
+        }
+    }, {
+        offset: '50%'
+    });
+
 
 
 
@@ -167,7 +177,21 @@ $(document).ready(function() {
 
 
 //OUverture modal avec ajax plus loader
+
+
+
+
 $(document).ready(function() {
+
+    $('.portfolio-card-btn').click(function() {
+        var url = Routing.generate('project_show', {
+            'id': $(this).attr('id')
+        });
+        $.get(url, function(data) {
+            $(".modal-content").html(data);
+        });
+    });
+
     var modal = $("#Modal"); //your modal 
 
     $(document).on({
@@ -181,17 +205,6 @@ $(document).ready(function() {
             $('.load').hide();
             modal.modal("show"); //modal show
         }
-    });
-
-
-    $('.portfolio-card-btn').click(function() {
-        var url = Routing.generate('project_show', {
-            'id': $(this).attr('id')
-        });
-        $.get(url, function(data) {
-            console.log(data)
-            $(".modal-content").html(data);
-        });
     });
 });
 

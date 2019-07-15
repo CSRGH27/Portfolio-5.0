@@ -111,7 +111,7 @@ $(document).ready(function() {
             $('.ctn-skills-h2').removeClass('show');
         }
     }, {
-        offset: '50%'
+        offset: '70%'
     });
 
     $('.about-ctn-big-ctn-assets').waypoint(function(direction) {
@@ -151,7 +151,7 @@ $(document).ready(function() {
             $('.contact-form').removeClass('contact-form-show');
         }
     }, {
-        offset: '50%'
+        offset: '90%'
     });
 
 

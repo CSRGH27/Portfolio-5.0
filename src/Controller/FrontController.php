@@ -10,7 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Project;
 use App\Form\ContactType;
-
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 
 
@@ -29,6 +30,7 @@ class FrontController extends AbstractController
         $form->handleRequest($request);
 
 
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             $contactFormData = $form->getData();
@@ -39,16 +41,13 @@ class FrontController extends AbstractController
                 ->setFrom($contactFormData['mail'])
                 ->setTo('paulcsrgh@gmail.com')
                 ->setBody(
-                    
+
                     $contactFormData['content'],
-                    
+
                     'text/plain'
-                    
+
                 );
             $mailer->send($message);
-
-
-            
         }
 
         return $this->render('front/index.html.twig', [

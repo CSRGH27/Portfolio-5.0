@@ -48,6 +48,7 @@ class FrontController extends AbstractController
 
                 );
             $mailer->send($message);
+            return $this->render('front/send.html.twig');
         }
 
         return $this->render('front/index.html.twig', [
@@ -65,6 +66,16 @@ class FrontController extends AbstractController
     {
         return $this->render('front/show.html.twig', [
             'project' => $project,
+
+        ]);
+    }
+    /**
+     *  @Route("/confirmation", name="confirmation")
+     */
+    public function confirmation()
+    {
+        return $this->render('front/send.html.twig', [
+            
 
         ]);
     }

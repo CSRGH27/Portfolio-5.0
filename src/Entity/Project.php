@@ -36,7 +36,7 @@ class Project
     /**
      * @ORM\Column(type="text")
      * @Assert\Length(
-     * min = 100,
+     * min = 20,
      * max = 350,
      * minMessage = "La description du projet doit faire au minimum {{ limit }} caracteres",
      * maxMessage = "La description du projet doit faire au maximum {{ limit }} caracteres"       

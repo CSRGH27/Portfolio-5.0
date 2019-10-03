@@ -7,6 +7,7 @@
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
+require('../css/send.css');
 require('waypoints/lib/jquery.waypoints.js')
 require('@loadingio/loading-bar')
 require('stellar.js')
@@ -16,8 +17,8 @@ require('stellar.js')
 
 
 //Appartion menu 
-$(document).ready(function() {
-    $('.main-ctn-burger').click(function() {
+$(document).ready(function () {
+    $('.main-ctn-burger').click(function () {
         $('.main-ctn-nav').toggleClass('main-ctn-nav-toggle')
         $('.main-ctn-burger').toggleClass('toggle-burger')
         $('.nav-menu').toggleClass('nav-menu-toggle')
@@ -38,8 +39,8 @@ $(document).ready(function() {
 // Appear/Dissapear nav
 
 
-$(document).ready(function() {
-    $('.main-ctn-dropdown, .menu-link-1, .menu-link-2, .menu-link-3, .menu-link-4, .menu-link-5').on('click', function() {
+$(document).ready(function () {
+    $('.main-ctn-dropdown, .menu-link-1, .menu-link-2, .menu-link-3, .menu-link-4, .menu-link-5').on('click', function () {
         var section = $(this).attr('href');
         $('html, body').animate({
             scrollTop: $(section).offset().top
@@ -50,8 +51,8 @@ $(document).ready(function() {
 
 
 //Appear skills + Waypoints
-$(document).ready(function() {
-    $('.ctn-skills-ctn-triangle').waypoint(function(direction) {
+$(document).ready(function () {
+    $('.ctn-skills-ctn-triangle').waypoint(function (direction) {
         var t1 = new ldBar('.T-1')
         var t2 = new ldBar('.T-2')
         var t3 = new ldBar('.T-3')
@@ -84,7 +85,7 @@ $(document).ready(function() {
         offset: '70%'
     });
 
-    $('.about-ctn-title').waypoint(function(direction) {
+    $('.about-ctn-title').waypoint(function (direction) {
         if (direction == 'down') {
             $('.about-ctn-title').addClass('show');
         } else {
@@ -94,7 +95,7 @@ $(document).ready(function() {
         offset: '50%'
     });
 
-    $('.about-ctn-big-ctn-bio').waypoint(function(direction) {
+    $('.about-ctn-big-ctn-bio').waypoint(function (direction) {
         if (direction == 'down') {
             $('.about-ctn-big-ctn-bio').addClass('show');
         } else {
@@ -104,7 +105,7 @@ $(document).ready(function() {
         offset: '50%'
     });
 
-    $('.ctn-skills-h2').waypoint(function(direction) {
+    $('.ctn-skills-h2').waypoint(function (direction) {
         if (direction == 'down') {
             $('.ctn-skills-h2').addClass('show');
         } else {
@@ -114,7 +115,7 @@ $(document).ready(function() {
         offset: '70%'
     });
 
-    $('.about-ctn-big-ctn-assets').waypoint(function(direction) {
+    $('.about-ctn-big-ctn-assets').waypoint(function (direction) {
         if (direction == 'down') {
             $('.about-ctn-big-ctn-assets').addClass('show');
         } else {
@@ -124,7 +125,7 @@ $(document).ready(function() {
         offset: '90%'
     });
 
-    $('.career').waypoint(function(direction) {
+    $('.career').waypoint(function (direction) {
         if (direction == 'down') {
             $('.item').addClass('item-show');
         } else {
@@ -134,7 +135,7 @@ $(document).ready(function() {
         offset: '50%'
     });
 
-    $('.portfolio').waypoint(function(direction) {
+    $('.portfolio').waypoint(function (direction) {
         if (direction == 'down') {
             $('.portfolio-card').addClass('portfolio-card-show');
         } else {
@@ -144,7 +145,7 @@ $(document).ready(function() {
         offset: '50%'
     });
 
-    $('.contact-form').waypoint(function(direction) {
+    $('.contact-form').waypoint(function (direction) {
         if (direction == 'down') {
             $('.contact-form').addClass('contact-form-show');
         } else {
@@ -163,9 +164,9 @@ $(document).ready(function() {
 
 
 //Portfolio responsive
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $('.career-ctn-center-gallery-wrap').on('click', 'div.career-btn-reponsive', function() {
+    $('.career-ctn-center-gallery-wrap').on('click', 'div.career-btn-reponsive', function () {
 
         $(this).siblings('.item-ctn-title').toggleClass('item-ctn-title-hide-reponsive')
         $(this).parents('.item').toggleClass('item-show-responsive')
@@ -181,13 +182,13 @@ $(document).ready(function() {
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $('.portfolio-card-btn').click(function() {
+    $('.portfolio-card-btn').click(function () {
         var url = Routing.generate('project_show', {
             'id': $(this).attr('id')
         });
-        $.get(url, function(data) {
+        $.get(url, function (data) {
             $(".modal-content").html(data);
         });
     });
@@ -195,13 +196,13 @@ $(document).ready(function() {
     var modal = $("#Modal"); //your modal 
 
     $(document).on({
-        ajaxStart: function() {
+        ajaxStart: function () {
             modal.find(".modal-content").html(""); //empty modal every ajaxstart
             $('.load').show();
             modal.modal("hide"); //hide
 
         },
-        ajaxStop: function() {
+        ajaxStop: function () {
             $('.load').hide();
             modal.modal("show"); //modal show
         }
@@ -210,22 +211,22 @@ $(document).ready(function() {
 
 
 //Form barre rouge
-$(document).ready(function() {
-    $('.form-name').keyup(function() {
+$(document).ready(function () {
+    $('.form-name').keyup(function () {
         if (this.value) {
             $('.form-span-name').addClass('span-scale');
         } else {
             $('.form-span-name').removeClass('span-scale');
         }
     });
-    $('.form-mail').keyup(function() {
+    $('.form-mail').keyup(function () {
         if (this.value) {
             $('.form-span-mail').addClass('span-scale');
         } else {
             $('.form-span-mail').removeClass('span-scale');
         }
     });
-    $('.form-text').keyup(function() {
+    $('.form-text').keyup(function () {
         if (this.value) {
             $('.form-span-text').addClass('span-scale');
         } else {

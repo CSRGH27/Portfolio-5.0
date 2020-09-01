@@ -1769,9 +1769,7 @@ input:-webkit-autofill:active {
   flex-direction: column;
   justify-content: center;
   padding: 35px;
-  transform: translateY(150px);
   transition: 0.5s;
-  opacity: 0;
 }
 
 .contact-form-show {

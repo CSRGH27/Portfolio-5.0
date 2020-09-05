@@ -1560,6 +1560,7 @@ input:-webkit-autofill:active {
 
 .modal-title {
   padding: 15px;
+  width: 100%;
 }
 
 .modal-title-btn {

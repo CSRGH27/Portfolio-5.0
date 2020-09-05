@@ -56,30 +56,30 @@ $(document).ready(function () {
     function (direction) {
       var t1 = new ldBar(".T-1");
       var t2 = new ldBar(".T-2");
-      // var t3 = new ldBar(".T-3");
-      // var t4 = new ldBar(".T-4");
-      // var t5 = new ldBar(".T-5");
-      // var t6 = new ldBar(".T-6");
-      // var t7 = new ldBar(".T-7");
-      // var t8 = new ldBar(".T-8");
+      var t3 = new ldBar(".T-3");
+      var t4 = new ldBar(".T-4");
+      var t5 = new ldBar(".T-5");
+      var t6 = new ldBar(".T-6");
+      var t7 = new ldBar(".T-7");
+      var t8 = new ldBar(".T-8");
       if (direction == "down") {
-        t1.set(90);
-        t2.set(90);
-        // t3.set(80);
-        // t4.set(70);
-        // t5.set(70);
-        // t6.set(75);
-        // t7.set(60);
-        // t8.set(70);
+        t1.set(85);
+        t2.set(82);
+        t3.set(80);
+        t4.set(70);
+        t5.set(95);
+        t6.set(85);
+        t7.set(70);
+        t8.set(72);
       } else {
         t1.set(0);
         t2.set(0);
-        // t3.set(0);
-        // t4.set(0);
-        // t5.set(0);
-        // t6.set(0);
-        // t7.set(0);
-        // t8.set(0);
+        t3.set(0);
+        t4.set(0);
+        t5.set(0);
+        t6.set(0);
+        t7.set(0);
+        t8.set(0);
       }
     },
     {

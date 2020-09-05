@@ -1186,6 +1186,9 @@ input:-webkit-autofill:active {
   transition: 0.5s;
   background-color: rgba(240, 15, 48, 0.5);
 }
+.item-ctn-desc p {
+  font-weight: 400;
+}
 
 .item-ctn-title {
   position: absolute;

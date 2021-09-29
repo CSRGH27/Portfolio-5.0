@@ -4,7 +4,7 @@ use EasyCorp\Bundle\EasyDeployBundle\Deployer\DefaultDeployer;
 
 return new class extends DefaultDeployer
 {
-    private $deployDir = '/var/www/dlice.world';
+    private $deployDir = '/var/www/Portfolio-5.0';
 
     public function configure()
     {
